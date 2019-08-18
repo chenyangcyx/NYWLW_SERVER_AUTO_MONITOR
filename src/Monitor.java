@@ -93,20 +93,21 @@ public class Monitor extends Thread
 						data2=allresult.getString("wendu");
 						data3="低于";
 						data4=String.valueOf(setting.getWendu_min());
-						data5="关闭";
+						data5="打开";
 						data6="遮光帘";
 						SendMessage(setting.getPhone(),data1,data2,data3,data4,data5,data6);
-						WriteControlMethod("B1");		//关闭遮光帘
+						WriteControlMethod("B0");		//打开遮光帘
 						break;
 					case "wendu_high":
 						data1="温度";
 						data2=allresult.getString("wendu");
 						data3="高于";
 						data4=String.valueOf(setting.getWendu_max());
-						data5="打开";
-						data6="遮光帘";
+						data5="关闭和打开";
+						data6="遮光帘和排气扇";
 						SendMessage(setting.getPhone(),data1,data2,data3,data4,data5,data6);
-						WriteControlMethod("B0");		//打开遮光帘
+						WriteControlMethod("B1");		//关闭遮光帘
+						WriteControlMethod("A0");		//打开排气扇
 						break;
 					case "shidu_low":
 						data1="湿度";
@@ -129,8 +130,24 @@ public class Monitor extends Thread
 						WriteControlMethod("A0");		//开启排气扇
 						break;
 					case "gz_low":
+						data1="光照";
+						data2=allresult.getString("guangzhao");
+						data3="低于";
+						data4=String.valueOf(setting.getGuangzhao_min());
+						data5="打开";
+						data6="遮光帘";
+						SendMessage(setting.getPhone(),data1,data2,data3,data4,data5,data6);
+						WriteControlMethod("B0");		//开启遮光帘
 						break;
 					case "gz_high":
+						data1="光照";
+						data2=allresult.getString("guangzhao");
+						data3="高于";
+						data4=String.valueOf(setting.getGuangzhao_max());
+						data5="关闭";
+						data6="遮光帘";
+						SendMessage(setting.getPhone(),data1,data2,data3,data4,data5,data6);
+						WriteControlMethod("B1");		//关闭遮光帘
 						break;
 					}
 				}
