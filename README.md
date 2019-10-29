@@ -1,2 +1,3 @@
 # NYWLW_SERVER_AUTO_MONITOR
-Chinese college students computer design competition, server-side software, automatic monitoring
+
+Chinese College Students Computer Design Competition, server-side software, automatic monitoring
